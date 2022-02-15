@@ -20,8 +20,8 @@ public class TestNGTodo1 {
 
     @BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        String username = System.getenv("LT_USERNAME") == null ? "mahajanhemant0312" : System.getenv("LT_USERNAME");
-        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "WvJt08xb3WxIIqWelIXu0rjlp2NJ1Rh39FZlVn8g9WjZvGwl3s" : System.getenv("LT_ACCESS_KEY");;
+        String username = System.getenv("LT_USERNAME") //== null ? "mahajanhemant0312" : System.getenv("LT_USERNAME");
+        String authkey = System.getenv("LT_ACCESS_KEY") //== null ? "WvJt08xb3WxIIqWelIXu0rjlp2NJ1Rh39FZlVn8g9WjZvGwl3s" : System.getenv("LT_ACCESS_KEY");;
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
@@ -40,12 +40,12 @@ public class TestNGTodo1 {
 		caps.setCapability("tunnel",true);
 		caps.setCapability("tunnelName", System.getenv("LT_TUNNEL_NAME"));
         
-        caps.setCapability("platform", "MacOS Catalina");
-        caps.setCapability("browserName", "Safari");
-        caps.setCapability("version", "latest");
-        caps.setCapability("build", "TestNG With Java");
-        caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
-        caps.setCapability("plugin", "git-testng");
+//         caps.setCapability("platform", "MacOS Catalina");
+//         caps.setCapability("browserName", "Safari");
+//         caps.setCapability("version", "latest");
+//         caps.setCapability("build", "TestNG With Java");
+//         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
+//         caps.setCapability("plugin", "git-testng");
 
         String[] Tags = new String[] { "Feature", "Falcon", "Severe" };
         caps.setCapability("tags", Tags);
