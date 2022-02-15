@@ -25,15 +25,11 @@ public class TestNGTodo1 {
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-		
-		caps.setCapability("build", System.getenv("LT_BUILD_NAME"));
-		caps.setCapability("name", System.getenv("LT_BUILD_NUMBER"));
-		caps.setCapability("tunnel",true);
-		caps.setCapability("tunnelName", System.getenv("LT_TUNNEL_NAME"));
         
         caps.setCapability("platform", "MacOS Catalina");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("version", "latest");
+	caps.setCapability("build", System.getenv("LT_BUILD_NAME"));
 //         caps.setCapability("build", "TestNG With Java");
         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
         caps.setCapability("plugin", "git-testng");
