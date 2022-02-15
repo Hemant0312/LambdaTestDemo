@@ -25,6 +25,21 @@ public class TestNGTodo1 {
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("browserName", System.getenv("LT_BROWSER_NAME"));
+		caps.setCapability("version", System.getenv("LT_BROWSER_VERSION"));
+		caps.setCapability("platform", System.getenv("LT_PLATFORM")); // If this cap isn't specified, it will just get
+		
+		caps.setCapability("build", System.getenv("LT_BUILD_NAME"));
+		caps.setCapability("name", System.getenv("LT_BUILD_NUMBER"));
+		
+		caps.setCapability("network", true); // To enable network logs
+		caps.setCapability("visual", true);
+		caps.setCapability("video", true); // To enable video recording`
+		caps.setCapability("console", true); // To capture console logs
+
+		caps.setCapability("tunnel",true);
+		caps.setCapability("tunnelName", System.getenv("LT_TUNNEL_NAME"));
+        
         caps.setCapability("platform", "MacOS Catalina");
         caps.setCapability("browserName", "Safari");
         caps.setCapability("version", "latest");
