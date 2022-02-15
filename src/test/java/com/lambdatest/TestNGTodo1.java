@@ -20,32 +20,23 @@ public class TestNGTodo1 {
 
     @BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        String username = System.getenv("LT_USERNAME") //== null ? "mahajanhemant0312" : System.getenv("LT_USERNAME");
-        String authkey = System.getenv("LT_ACCESS_KEY") //== null ? "WvJt08xb3WxIIqWelIXu0rjlp2NJ1Rh39FZlVn8g9WjZvGwl3s" : System.getenv("LT_ACCESS_KEY");;
+        String username = System.getenv("LT_USERNAME") == null ? "mahajanhemant0312" : System.getenv("LT_USERNAME");
+        String authkey = System.getenv("LT_ACCESS_KEY") == null ? "WvJt08xb3WxIIqWelIXu0rjlp2NJ1Rh39FZlVn8g9WjZvGwl3s" : System.getenv("LT_ACCESS_KEY");
         String hub = "@hub.lambdatest.com/wd/hub";
 
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("browserName", System.getenv("LT_BROWSER_NAME"));
-		caps.setCapability("version", System.getenv("LT_BROWSER_VERSION"));
-		caps.setCapability("platform", System.getenv("LT_PLATFORM")); // If this cap isn't specified, it will just get
 		
 		caps.setCapability("build", System.getenv("LT_BUILD_NAME"));
 		caps.setCapability("name", System.getenv("LT_BUILD_NUMBER"));
-		
-		caps.setCapability("network", true); // To enable network logs
-		caps.setCapability("visual", true);
-		caps.setCapability("video", true); // To enable video recording`
-		caps.setCapability("console", true); // To capture console logs
-
 		caps.setCapability("tunnel",true);
 		caps.setCapability("tunnelName", System.getenv("LT_TUNNEL_NAME"));
         
-//         caps.setCapability("platform", "MacOS Catalina");
-//         caps.setCapability("browserName", "Safari");
-//         caps.setCapability("version", "latest");
+        caps.setCapability("platform", "MacOS Catalina");
+        caps.setCapability("browserName", "Safari");
+        caps.setCapability("version", "latest");
 //         caps.setCapability("build", "TestNG With Java");
-//         caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
-//         caps.setCapability("plugin", "git-testng");
+        caps.setCapability("name", m.getName() + " - " + this.getClass().getName());
+        caps.setCapability("plugin", "git-testng");
 
         String[] Tags = new String[] { "Feature", "Falcon", "Severe" };
         caps.setCapability("tags", Tags);
